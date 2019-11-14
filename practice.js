@@ -54,7 +54,7 @@ var family = ['Tyler', 'Jordyn', 'Ryan', 'Chelsey', 'Ireland'];
 //Code Here
 function looper(family) {
   for (i=0; i < family.length; i++) {
-    family[i];
+    alert(family[i]);
   }
 }
 
@@ -73,7 +73,7 @@ var letters = ['A', 'B', 'C', 'D', 'E'];
 //Code Here
 function reversedLooper(letters) {
   for (i = letters.length-1; i >= 0; i--) {
-    letters[i];
+    alert(letters[i]);
   }
 }
 
@@ -129,7 +129,23 @@ var numbersArray = [1,2,34,54,55,34,32,11,19,17,54,66,13];
 */
 
 //Code Here
+function divider(numbersArray) {
+  let evensOdds = [];
+  let evenArray = [];
+  let oddsArray = [];
+  for (let i = 0; i < numbersArray.length; i++) {
+    if (numbersArray[i] % 2 === 0) {
+      evenArray.push( numbersArray[i] );
+    }
+    else {
+      oddsArray.push( numbersArray[i] );
+    }
+  }
+  evensOdds.push(evenArray, oddsArray);
+  return evensOdds;
+}
 
+console.log(divider(numbersArray));
 
 
 ////////// PROBLEM 7 //////////
@@ -151,7 +167,31 @@ var getRandomArbitrary = function() {
 */
 
 //Code Here
+/*
+function finder(arr) {
+  let randomNumber = getRandomArbitrary();
+  let exist = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === randomNumber) {
+      exist++;
+    }
+  }
+  if (exist >= 1) {
+    return true;
+  }
+  else {
+    return false;
+  }
+}
+*/
 
+function finder(arr) {
+  let randomNumber = getRandomArbitrary();   // I need to remember that the variable getRandomArbirary is a function, because it was written as a function EXPRESSION.
+  if (arr.includes(randomNumber)) {
+    return true;
+  }
+  return false;
+}
 
 
 ////////// PROBLEM 8 //////////
@@ -181,7 +221,44 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 
 //Code Here
 
+// function removeItem(myGroceryList, itemRemoved) {
+//   let listAfterRemoval = []; // returns blank if both parameters do not exist, since if statements will return false otherwise
+//   if (myGroceryList.includes(itemRemoved)) {
+//     for (let i = 0; i < myGroceryList.length; i++) {
+//       if (myGroceryList[i] === itemRemoved) {
+//         myGroceryList.splice(i, 1);
+//         listAfterRemoval = myGroceryList;
+//       }
+//     }
+//   }
+//   return listAfterRemoval;
+// }
 
+function removeItem(myGroceryList, itemRemoved) {
+  let listAfterRemoval = [];
+  if (myGroceryList && itemRemoved) {
+    if (myGroceryList.includes(itemRemoved)) {
+      for (let i = 0; i < myGroceryList.length; i++) {
+        if (myGroceryList[i] === itemRemoved) {
+          myGroceryList.splice(i, 1);
+        }
+      }
+    }
+    return myGroceryList;
+  }
+  return listAfterRemoval;
+}
+
+function addItem(myGroceryList, itemAdded) {
+  let listAfterAddition = []; // returns blank if both parameters do not exist, since if statements will return false otherwise
+  if (myGroceryList && itemAdded) {
+    if (!myGroceryList.includes(itemAdded)) {  // checks for duplicates
+      myGroceryList.push(itemAdded);
+    }
+    return myGroceryList;
+  }
+  return listAfterAddition;
+}
 
 ////////// PROBLEM 9 //////////
 
@@ -191,7 +268,15 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 
 //Code Here
 
+function maker() {
+  let bigNumbers = [];
+  for (let i = 1; i <= 215; i++) {
+    bigNumbers.push(i);
+  }
+  return bigNumbers;
+}
 
+console.log(maker());
 
 ////////// PROBLEM 10 //////////
 
@@ -207,7 +292,14 @@ var numbers = [5, '9', 16, 19, '25', '34', 48];
   
 //Code Here
 
+function addTen(numbers) {
+  for (i = 0; i < numbers.length; i++) {
+    numbers[i] = Number(numbers[i]) + 10;     //turns each string in array numbers to an actual number; does nothing if it was already a number
+  }
+  return numbers;
+}
 
+console.log(addTen(numbers));
 
 ////////// PROBLEM 11 //////////
 
@@ -232,7 +324,21 @@ for(var i = 0; i < num2; i++){
 
 //Code Here
 
+function longer (arr1, arr2) {
+  if (arr1.length > arr2.length) {
+    console.log("Array 1 is bigger with " + arr1.length + " numbers: " + arr1);
+    return arr1;
+  }
+  else if (arr1.length < arr2.length) {
+    console.log("Array 2 is bigger with " + arr2.length + " numbers: " + arr2);
+    return arr2;
+  }
+  else {
+    return arr1;
+  }
+}
 
+console.log(longer(arr1, arr2));
 
 /*
   As a continuation of the previous problem, write another function called 'both'.
@@ -244,6 +350,17 @@ for(var i = 0; i < num2; i++){
 
 //Code Here
 
+function both (arr1, arr2) {
+  let dupeNums = [];
+  for (let i = 0; i < arr1.length; i++) {
+    if (arr2.includes(arr1[i])) {
+      dupeNums.push(arr1[i]);
+    }
+  }
+  return dupeNums;
+}
+
+console.log(both(arr1, arr2));
 
 
 ////////// PROBLEM 12 //////////
@@ -285,7 +402,12 @@ var colt = {
 
 //Code Here
 
-
+devMountainEmployees.push(joe);
+devMountainEmployees.push(cahlan);
+devMountainEmployees.push(ryan);
+devMountainEmployees.push(colt);
+console.log(devMountainEmployees.length);
+console.log(devMountainEmployees);
 
 /*
   Now let's say Cahlan has to take a leave of absence.
@@ -294,7 +416,16 @@ var colt = {
 
 //Code Here
 
-
+function removeEmployee (name) {
+  for (let i = 0; i < devMountainEmployees.length; i++) {
+    if (devMountainEmployees[i].name == name) {
+      devMountainEmployees.splice(i, 1);
+    }
+  }
+  console.log(devMountainEmployees);
+  console.log(devMountainEmployees.length);
+}
+removeEmployee("Cahlan");
 
 ////////// PROBLEM 13 //////////
 
@@ -306,7 +437,7 @@ var colt = {
 
 //Code Here
 
-
+let users = [];
 
 /*
   Now add three user objects to your users array. Each user object should contain the following properties: name, email, password, username.
@@ -326,7 +457,23 @@ var user1 = {
 // Do not edit the code above.
 
 //Code Here
+/* need to make function that makes user objects  */
+function makeUser(name, email, password, username) {
+  return {
+    name,
+    email,
+    password,
+    username
+  }
+};
 
+users.push(user1);
+let user2 = makeUser("Gabriel Kim", "boop", "oof", "Hibiki_ext");
+users.push(user2);
+let user3 = makeUser("hahargh", "69@gmail.com", "oof", "420blazeIt");
+users.push(user3);
+
+/* Now how do I make users automatically without repeating users.push(userx) over and over again? Callback? */
 
 
 /*
@@ -341,7 +488,17 @@ var user1 = {
 
 //Code Here
 
-
+function deleteUser(users, emailSearch) {
+  for (let i = 0; i < users.length; i++) {
+    if (users[i].email === emailSearch) {
+      let removedUser = users.splice(i, 1);
+      console.log("Removed user with email " + emailSearch);
+    }
+  }
+  return users;
+}
+deleteUser(users, "mark.mciver@devmounta.in");
+console.log(users);
 
 /*
   The activity we just did is very much how data works in 'the real world'.
